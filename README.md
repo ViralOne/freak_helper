@@ -8,11 +8,11 @@ chmod +x post_install.sh
 ## Software list
 Tools that are included in post_install script
 
-| Software | Team |
-| ------ | ------ |
-| Git | All |
-| Node.js 14.x | FrontEnd & BackEnd |
-| Node.js 16.x | FrontEnd & BackEnd |
+| Software | FrontEnd | BackEnd | Android | DevOps |
+| ------ | ------ | ------ | ------ | ------ |
+| Git | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Node.js 14.x | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: |
+| Node.js 16.x | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: |
 
 ## Development
 
