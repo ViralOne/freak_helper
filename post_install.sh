@@ -29,6 +29,7 @@ o23="off"
 o24="off"
 o25="off"
 o26="off"
+o27="off"
 VER="0.4"
 
 menu() {
@@ -94,7 +95,9 @@ software(){
              23 "AWS VPN Client" $o23
              24 "AWS CLI" $o24
              25 "OpenVPN" $o25
-             26 "SOPS" $o26)
+             26 "SOPS" $o26
+             27 "K9s" $o27
+             )
         choices=$("${cmd[@]}" "${options[@]}" 2>&1 >/dev/tty)
         clear
         for choice in $choices
@@ -263,6 +266,15 @@ software(){
             26)
                 echo "Installing SOPS"
                 sudo apt-get install sops -y
+                ;;
+            27) 
+                echo "Installing K9s"
+                curl -s https://api.github.com/repos/derailed/k9s/releases/latest \
+                | grep "Linux_x86_64" \
+                | cut -d : -f 2,3 \
+                | tr -d \" \
+                | wget -qi - \
+                | tar -xzvf - -C /usr/local/bin
                 ;;
 	    esac
 	done
