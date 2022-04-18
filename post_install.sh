@@ -38,7 +38,7 @@ menu() {
         --menu "Move using [UP] [DOWN], [Enter] to select" 17 60 10\
         FrontEnd "Intall tools for Frontend Developer" \
         BackEnd "Intall tools for Backend Developer" \
-        FullStack "Intall tools for Fullstack Developer" \
+        Roku "Intall tools for Roku Developer" \
         Android "Intall tools for Android Developers" \
         DevOps "Intall tools for DevOps Engineering" \
         Quit "Close Freak Helper script" 2>$_temp
@@ -50,7 +50,7 @@ menu() {
     case $menuitem in
         FrontEnd) _temp_var="frontend" ; check ; software;;
         BackEnd) _temp_var="backend" ; check ;  software;;
-        FullStack) _temp_var="full" ; check ; software;;
+        Roku) _temp_var="roku" ; check ; software;;
         Android) _temp_var="android" ; check ; software;;
         DevOps) _temp_var="devops" ; check ; software;;
         Quit) rm $_temp; clear; exit;;
@@ -64,30 +64,39 @@ check() {
     o1="on" o2="off" o3="off" o4="off" o5="off" o6="off" o7="off" o8="off" o9="off" o10="off" o11="off" o12="off" o13="off" o14="off" o15="off" o16="off" o17="off" o18="off" o19="off" o20="off" o21="off" o22="off" o23="off" o24="off" o25="off" o26="off"
   else if [ "$_temp_var" == "backend" ]; then
     o1="off" o2="off" o3="off" o4="off" o5="off" o6="on" o7="off" o8="off" o9="off" o10="off" o11="off" o12="off" o13="off" o14="off" o15="off" o16="off" o17="off" o18="off" o19="off" o20="off" o21="off" o22="off" o23="off" o24="off" o25="off" o26="off"
-  fi
+  else if [ "$_temp_var" == "roku" ]; then
+    o1="off" o2="off" o3="off" o4="off" o5="off" o6="on" o7="off" o8="off" o9="off" o10="off" o11="off" o12="off" o13="off" o14="off" o15="off" o16="off" o17="off" o18="off" o19="off" o20="off" o21="off" o22="off" o23="off" o24="off" o25="off" o26="off"
+  else if [ "$_temp_var" == "android" ]; then
+    o1="off" o2="off" o3="off" o4="off" o5="off" o6="on" o7="off" o8="off" o9="off" o10="off" o11="off" o12="off" o13="off" o14="off" o15="off" o16="off" o17="off" o18="off" o19="off" o20="off" o21="off" o22="off" o23="off" o24="off" o25="off" o26="off"
+  else if [ "$_temp_var" == "devops" ]; then
+    o1="on" o2="off" o3="off" o4="off" o5="off" o6="on" o7="off" o8="off" o9="off" o10="off" o11="off" o12="off" o13="off" o14="off" o15="off" o16="off" o17="off" o18="off" o19="off" o20="off" o21="off" o22="off" o23="off" o24="off" o25="off" o26="off"
+      fi
+     fi
+    fi
+   fi
   fi
 }
 
 software(){
     cmd=(dialog --separate-output --ok-label "Install" --checklist "Move using [UP] [DOWN], [Space-Bar] to select & [ENTER] to install" 22 76 16)
     options=(1 "Git" $o1
-	         2 "Node.js 14.x (install just one version)" $o2
-             3 "Node.js 16.x (install just one version)" $o3
-	         4 "JDK 8" $o4
-	         5 "Firefox" $o5
-	         6 "Google Chrome" $o6
-	         7 "Generate SSH Keys" $o7
-	         8 "Webpack" $o8
-             9 "Visual Studio Code" $o9
+	         2 "NVM" $o2
+             3 "???" $o3
+	         4 "???" $o4
+	         5 "RubyMine" $o5
+	         6 "Android Studio" $o6
+	         7 "Visual Studio Code" $o7
+	         8 "Generate SSH Keys" $o8
+             9 "Atom Editor" $o9
              10 "Slack" $o10
              11 "ZSH" $o11
              12 "MySQL" $o12
              13 "PostgreSQL" $o13
-             14 "Rubby" $o14
-             15 "Postman" $o15
-             16 "Insomnia" $o16
-             17 "Atom Editor" $o17
-             18 "Python3" $o18
+             14 "Ruby" $o14
+             15 "Python3" $o15
+             16 "GoLang" $o16
+             17 "Postman" $o17
+             18 "Insomnia" $o18
              19 "GitKraken" $o19
              20 "Docker" $o20
              21 "Kubernetes" $o21
@@ -109,42 +118,28 @@ software(){
 				;;
 
 			2)
-				echo "Installing Node.js 14.x"
-				curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
-				apt install -y nodejs
+				echo "Installing NVM"
+				curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+                echo "You will need to export NVM_DIR, please follow the instructions from NVM repo"
 				;;
             3)
-                echo "Installing Node.js 16.x"
-                curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -
-                apt install -y nodejs
+                echo "???"
                 ;;
     		4)	
-				echo "Installing JDK 8"
-				# add-apt-repository ppa:webupd8team/java -y
-				# apt update
-				# apt install oracle-java8-installer -y
+				echo "???"
 				;;
 				
 			5)
-                echo "Installing Firefox"
-                apt-get update 
+                echo "Installing RubyMine"
+                sudo snap install rubymine --classic 
                 ;;
 			6)
-				echo "Installing Google Chrome"
-				wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
-				sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
-				apt-get update 
-				apt-get install google-chrome-stable -y
+				echo "Installing Android Studio"
+                sudo apt install -y openjdk-11-jdk
+				sudo snap install android-studio --classic
+                sudo apt install -y android-tools
 				;;
 			7)
-				echo "Generating SSH keys"
-				ssh-keygen -t rsa -b 4096
-				;;
-			8)
-				echo "Installing Webpack"
-				npm install webpack -g
-				;;
-			9)
 				echo "Installing Visual Studio Code"
 				sudo apt install software-properties-common apt-transport-https
                 wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
@@ -152,6 +147,17 @@ software(){
                 sudo sh -c 'echo "deb [arch=amd64 signed-by=/etc/apt/trusted.gpg.d/packages.microsoft.gpg] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
 				sudo apt update
                 sudo apt install code -y
+				;;
+			8)
+				echo "Generating SSH keys"
+				ssh-keygen -t rsa -b 4096
+				;;
+			9)
+				echo "Installing Atom Editor"
+                sudo add-apt-repository ppa:webupd8team/atom
+                sudo apt-get update
+                sudo apt-get install atom
+                apm starred --install
                 ;;
             10)
                 echo "Installing Slack"
@@ -179,6 +185,14 @@ software(){
                 sudo apt-get install ruby-bundler -y
                 ;;
             15) 
+                echo "Installing Python3.9"
+                sudo apt-get install python3.9 -y
+                ;;
+            16) 
+                echo "Installing Go"
+                sudo apt-get install golang-go -y
+                ;;
+            17) 
                 echo "Installing Postman"
                 wget https://dl.pstmn.io/download/latest/linux64 -O postman.tar.gz
                 tar -xzf postman.tar.gz
@@ -186,25 +200,20 @@ software(){
                 sudo mv Postman /opt/
                 sudo ln -s /opt/Postman/Postman /usr/bin/postman
                 ;;
-            16) 
-                echo "Installing Insomnia"
-                ;;
-            
-            17) 
-                echo "Installing Atom Editor"
-                sudo add-apt-repository ppa:webupd8team/atom
-                sudo apt-get update
-                sudo apt-get install atom
-                apm starred --install
-                ;;
             18)
-                echo "Installing Python3"
-                sudo apt-get install python3-pip -y
+                echo "Installing Insomnia"
+                echo "deb [trusted=yes arch=amd64] https://download.konghq.com/insomnia-ubuntu/ default all" \
+                    | sudo tee -a /etc/apt/sources.list.d/insomnia.list
+
+                # Refresh repository sources and install Insomnia
+                sudo apt-get update
+                sudo apt-get install insomnia
                 ;;
             19)
                 echo "Installing GitKraken"
                 wget https://release.gitkraken.com/linux/gitkraken-amd64.deb
                 sudo dpkg -i gitkraken-amd64.deb
+                rm gitkraken-amd64.deb
                 ;;
             
             20) 
@@ -286,7 +295,8 @@ if [[ $EUID -ne 0 ]]; then
 else
  #Update and Upgrade
 echo "Updating and Upgrading"
-# apt-get update sudo apt-get upgrade -y
-# sudo apt-get install dialog
+ #apt-get update 
+ #sudo apt-get upgrade -y
+ #sudo apt-get install dialog
 menu
 fi
