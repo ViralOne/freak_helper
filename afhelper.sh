@@ -3,34 +3,9 @@
 _temp="/tmp/answer.$$"
 _temp_var="$$"
 alegere="off"
-o1="off"
-o2="off"
-o3="off"
-o4="off"
-o5="off"
-o6="off"
-o7="off"
-o8="off"
-o9="off"
-o10="off"
-o11="off"
-o12="off"
-o13="off"
-o14="off"
-o15="off"
-o16="off"
-o17="off"
-o18="off"
-o19="off"
-o20="off"
-o21="off"
-o22="off"
-o23="off"
-o24="off"
-o25="off"
-o26="off"
-o27="off"
-VER="0.4"
+tools=("off" "off" "off" "off" "off" "off" "off" "off" "off" "off" "off" "off" "off" "off" "off" "off" "off" "off" "off" "off" "off" "off" "off" "off" "off" "off" "off" "off" "off" "off")
+
+VER="0.5"
 
 menu() {
  dialog --backtitle "Install all the tools you need" --title " Freak Helper - v$VER "\
@@ -41,7 +16,7 @@ menu() {
         Roku "Intall tools for Roku Developer" \
         Android "Intall tools for Android Developers" \
         DevOps "Intall tools for DevOps Engineering" \
-        Quit "Close Freak Helper script" 2>$_temp
+        Quit "Close Freak Helper" 2>$_temp
        
     opt=${?}
     if [ $opt != 0 ]; then rm $_temp; exit; fi
@@ -58,18 +33,16 @@ menu() {
 }
 
 check() {
- dialog --backtitle "Verficare variabila" \
-    --msgbox "Variabila este: $_temp_var" 9 52
   if [ "$_temp_var" == "frontend" ]; then
-    o1="on" o2="off" o3="off" o4="off" o5="off" o6="off" o7="off" o8="off" o9="off" o10="off" o11="off" o12="off" o13="off" o14="off" o15="off" o16="off" o17="off" o18="off" o19="off" o20="off" o21="off" o22="off" o23="off" o24="off" o25="off" o26="off"
+    tools[0]="on" tools[1]="off" tools[2]="off" tools[3]="off" tools[4]="off" tools[5]="off" tools[6]="off" tools[7]="off" tools[8]="off" tools[9]="off" tools[10]="off" tools[11]="off" tools[12]="off" tools[13]="off" tools[14]="off" tools[15]="off" tools[16]="off" tools[17]="off" tools[18]="off" tools[19]="off" tools[20]="off" tools[21]="off" tools[22]="off" tools[23]="off" tools[24]="off" tools[25]="off"
   else if [ "$_temp_var" == "backend" ]; then
-    o1="off" o2="off" o3="off" o4="off" o5="off" o6="on" o7="off" o8="off" o9="off" o10="off" o11="off" o12="off" o13="off" o14="off" o15="off" o16="off" o17="off" o18="off" o19="off" o20="off" o21="off" o22="off" o23="off" o24="off" o25="off" o26="off"
+    tools[0]="on" tools[1]="off" tools[2]="off" tools[3]="off" tools[4]="off" tools[5]="off" tools[6]="off" tools[7]="off" tools[8]="off" tools[9]="off" tools[10]="off" tools[11]="off" tools[12]="off" tools[13]="off" tools[14]="off" tools[15]="off" tools[16]="off" tools[17]="off" tools[18]="off" tools[19]="off" tools[20]="off" tools[21]="off" tools[22]="off" tools[23]="off" tools[24]="off" tools[25]="off"
   else if [ "$_temp_var" == "roku" ]; then
-    o1="off" o2="off" o3="off" o4="off" o5="off" o6="on" o7="off" o8="off" o9="off" o10="off" o11="off" o12="off" o13="off" o14="off" o15="off" o16="off" o17="off" o18="off" o19="off" o20="off" o21="off" o22="off" o23="off" o24="off" o25="off" o26="off"
+    tools[0]="on" tools[1]="off" tools[2]="off" tools[3]="off" tools[4]="off" tools[5]="off" tools[6]="off" tools[7]="off" tools[8]="off" tools[9]="off" tools[10]="off" tools[11]="off" tools[12]="off" tools[13]="off" tools[14]="off" tools[15]="off" tools[16]="off" tools[17]="off" tools[18]="off" tools[19]="off" tools[20]="off" tools[21]="off" tools[22]="off" tools[23]="off" tools[24]="off" tools[25]="off"
   else if [ "$_temp_var" == "android" ]; then
-    o1="off" o2="off" o3="off" o4="off" o5="off" o6="on" o7="off" o8="off" o9="off" o10="off" o11="off" o12="off" o13="off" o14="off" o15="off" o16="off" o17="off" o18="off" o19="off" o20="off" o21="off" o22="off" o23="off" o24="off" o25="off" o26="off"
+    tools[0]="on" tools[1]="off" tools[2]="off" tools[3]="off" tools[4]="off" tools[5]="off" tools[6]="off" tools[7]="off" tools[8]="off" tools[9]="off" tools[10]="off" tools[11]="off" tools[12]="off" tools[13]="off" tools[14]="off" tools[15]="off" tools[16]="off" tools[17]="off" tools[18]="off" tools[19]="off" tools[20]="off" tools[21]="off" tools[22]="off" tools[23]="off" tools[24]="off" tools[25]="off"
   else if [ "$_temp_var" == "devops" ]; then
-    o1="on" o2="off" o3="off" o4="off" o5="off" o6="on" o7="off" o8="off" o9="off" o10="off" o11="off" o12="off" o13="off" o14="off" o15="off" o16="off" o17="off" o18="off" o19="off" o20="off" o21="off" o22="off" o23="off" o24="off" o25="off" o26="off"
+    tools[0]="on" tools[1]="off" tools[2]="off" tools[3]="off" tools[4]="off" tools[5]="off" tools[6]="off" tools[7]="off" tools[8]="off" tools[9]="off" tools[10]="off" tools[11]="off" tools[12]="off" tools[13]="off" tools[14]="off" tools[15]="off" tools[16]="off" tools[17]="off" tools[18]="off" tools[19]="off" tools[20]="off" tools[21]="off" tools[22]="off" tools[23]="off" tools[24]="off" tools[25]="on"
       fi
      fi
     fi
@@ -79,33 +52,33 @@ check() {
 
 software(){
     cmd=(dialog --separate-output --ok-label "Install" --checklist "Move using [UP] [DOWN], [Space-Bar] to select & [ENTER] to install" 22 76 16)
-    options=(1 "Git" $o1
-	         2 "NVM" $o2
-             3 "???" $o3
-	         4 "???" $o4
-	         5 "RubyMine" $o5
-	         6 "Android Studio" $o6
-	         7 "Visual Studio Code" $o7
-	         8 "Generate SSH Keys" $o8
-             9 "Atom Editor" $o9
-             10 "Slack" $o10
-             11 "ZSH" $o11
-             12 "MySQL" $o12
-             13 "PostgreSQL" $o13
-             14 "Ruby" $o14
-             15 "Python3" $o15
-             16 "GoLang" $o16
-             17 "Postman" $o17
-             18 "Insomnia" $o18
-             19 "GitKraken" $o19
-             20 "Docker" $o20
-             21 "Kubernetes" $o21
-             22 "Terraform" $o22
-             23 "AWS VPN Client" $o23
-             24 "AWS CLI" $o24
-             25 "OpenVPN" $o25
-             26 "SOPS" $o26
-             27 "K9s" $o27
+    options=(1 "Git" ${tools[0]}
+	         2 "NVM" ${tools[1]}
+             3 "???" ${tools[2]}
+	         4 "???" ${tools[3]}
+	         5 "RubyMine" ${tools[4]}
+	         6 "Android Studio" ${tools[5]}
+	         7 "Visual Studio Code" ${tools[6]}
+	         8 "Generate SSH Keys" ${tools[7]}
+             9 "???" ${tools[8]}
+             10 "Slack" ${tools[9]}
+             11 "ZSH" ${tools[10]}
+             12 "MySQL" ${tools[11]}
+             13 "PostgreSQL" ${tools[12]}
+             14 "Ruby" ${tools[13]}
+             15 "Python3" ${tools[14]}
+             16 "GoLang" ${tools[15]}
+             17 "Postman" ${tools[16]}
+             18 "Insomnia" ${tools[17]}
+             19 "GitKraken" ${tools[18]}
+             20 "Docker" ${tools[19]}
+             21 "Kubernetes" ${tools[20]}
+             22 "Terraform" ${tools[21]}
+             23 "AWS VPN Client" ${tools[22]}
+             24 "AWS CLI" ${tools[23]}
+             25 "???" ${tools[24]}
+             26 "SOPS" ${tools[25]}
+             27 "K9s" ${tools[26]}
              )
         choices=$("${cmd[@]}" "${options[@]}" 2>&1 >/dev/tty)
         clear
@@ -153,11 +126,7 @@ software(){
 				ssh-keygen -t rsa -b 4096
 				;;
 			9)
-				echo "Installing Atom Editor"
-                sudo add-apt-repository ppa:webupd8team/atom
-                sudo apt-get update
-                sudo apt-get install atom
-                apm starred --install
+				echo "Installing ???"
                 ;;
             10)
                 echo "Installing Slack"
@@ -269,8 +238,7 @@ software(){
                 sudo rm -rf awscliv2.zip aws
                 ;;
             25)
-                echo "Installing OpenVPN"
-                sudo apt-get install openvpn -y
+                echo "Installing ????"
                 ;;
             26)
                 echo "Installing SOPS"
@@ -293,10 +261,5 @@ if [[ $EUID -ne 0 ]]; then
    	echo "This script must be run as root" 
    	exit 1
 else
- #Update and Upgrade
-echo "Updating and Upgrading"
- #apt-get update 
- #sudo apt-get upgrade -y
- #sudo apt-get install dialog
-menu
+    menu
 fi

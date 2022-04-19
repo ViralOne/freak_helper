@@ -16,8 +16,8 @@ sudo apt-get install dialog
 ## Use the script in your terminal
 
 ```sh
-chmod +x post_install.sh
-./post_install.sh
+chmod +x afhelper.sh
+./afhelper.sh
 ```
 
 ## Compile the script to have an executable
@@ -52,7 +52,7 @@ Open a terminal an run inside the next line:
 
 ## Software list
 
-Tools that are included in post_install script
+Tools that are included in afhelper script
 
 | Software | FrontEnd | BackEnd | Android | DevOps |
 | ------ | ------ | ------ | ------ | ------ |
