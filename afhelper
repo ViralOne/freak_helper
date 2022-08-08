@@ -33,34 +33,43 @@ menu() {
 }
 
 check() {
+
+#    tools[0]="off" tools[1]="off" tools[2]="off" tools[3]="off" tools[4]="off" tools[5]="off" tools[6]="off" tools[7]="off" tools[8]="off" tools[9]="off" tools[10]="off" tools[11]="off" tools[12]="off" tools[13]="off" tools[14]="off" tools[15]="off" tools[16]="off" tools[17]="off" tools[18]="off" tools[19]="off" tools[20]="off" tools[21]="off" tools[22]="off" tools[23]="off" tools[24]="off" tools[25]="off"
+
+
   if [ "$_temp_var" == "frontend" ]; then
-    tools[0]="on" tools[1]="off" tools[2]="off" tools[3]="off" tools[4]="off" tools[5]="off" tools[6]="off" tools[7]="off" tools[8]="off" tools[9]="off" tools[10]="off" tools[11]="off" tools[12]="off" tools[13]="off" tools[14]="off" tools[15]="off" tools[16]="off" tools[17]="off" tools[18]="off" tools[19]="off" tools[20]="off" tools[21]="off" tools[22]="off" tools[23]="off" tools[24]="off" tools[25]="off"
+    tools[0]="on"
+    tools[1]="on"
   else if [ "$_temp_var" == "backend" ]; then
-    tools[0]="on" tools[1]="off" tools[2]="off" tools[3]="off" tools[4]="off" tools[5]="off" tools[6]="off" tools[7]="off" tools[8]="off" tools[9]="off" tools[10]="off" tools[11]="off" tools[12]="off" tools[13]="off" tools[14]="off" tools[15]="off" tools[16]="off" tools[17]="off" tools[18]="off" tools[19]="off" tools[20]="off" tools[21]="off" tools[22]="off" tools[23]="off" tools[24]="off" tools[25]="off"
+    tools[0]="on"
+    tools[2]="on"
   else if [ "$_temp_var" == "roku" ]; then
-    tools[0]="on" tools[1]="off" tools[2]="off" tools[3]="off" tools[4]="off" tools[5]="off" tools[6]="off" tools[7]="off" tools[8]="off" tools[9]="off" tools[10]="off" tools[11]="off" tools[12]="off" tools[13]="off" tools[14]="off" tools[15]="off" tools[16]="off" tools[17]="off" tools[18]="off" tools[19]="off" tools[20]="off" tools[21]="off" tools[22]="off" tools[23]="off" tools[24]="off" tools[25]="off"
+    tools[0]="on"
+    tools[3]="on"
   else if [ "$_temp_var" == "android" ]; then
-    tools[0]="on" tools[1]="off" tools[2]="off" tools[3]="off" tools[4]="off" tools[5]="off" tools[6]="off" tools[7]="off" tools[8]="off" tools[9]="off" tools[10]="off" tools[11]="off" tools[12]="off" tools[13]="off" tools[14]="off" tools[15]="off" tools[16]="off" tools[17]="off" tools[18]="off" tools[19]="off" tools[20]="off" tools[21]="off" tools[22]="off" tools[23]="off" tools[24]="off" tools[25]="off"
+    tools[0]="on"
+    tools[4]="on"
   else if [ "$_temp_var" == "devops" ]; then
-    tools[0]="on" tools[1]="off" tools[2]="off" tools[3]="off" tools[4]="off" tools[5]="off" tools[6]="off" tools[7]="off" tools[8]="off" tools[9]="off" tools[10]="off" tools[11]="off" tools[12]="off" tools[13]="off" tools[14]="off" tools[15]="off" tools[16]="off" tools[17]="off" tools[18]="off" tools[19]="off" tools[20]="off" tools[21]="off" tools[22]="off" tools[23]="off" tools[24]="off" tools[25]="on"
-      fi
-     fi
+    tools[0]="on"
+    tools[25]="on"
     fi
    fi
   fi
+ fi
+fi
 }
 
 software(){
     cmd=(dialog --separate-output --ok-label "Install" --checklist "Move using [UP] [DOWN], [Space-Bar] to select & [ENTER] to install" 22 76 16)
     options=(1 "Git" ${tools[0]}
 	         2 "NVM" ${tools[1]}
-             3 "???" ${tools[2]}
-	         4 "???" ${tools[3]}
+             3 "Chrome" ${tools[2]}
+	         4 "asdf" ${tools[3]}
 	         5 "RubyMine" ${tools[4]}
 	         6 "Android Studio" ${tools[5]}
 	         7 "Visual Studio Code" ${tools[6]}
 	         8 "Generate SSH Keys" ${tools[7]}
-             9 "???" ${tools[8]}
+             9 "Nmap" ${tools[8]}
              10 "Slack" ${tools[9]}
              11 "ZSH" ${tools[10]}
              12 "MySQL" ${tools[11]}
@@ -76,7 +85,7 @@ software(){
              22 "Terraform" ${tools[21]}
              23 "AWS VPN Client" ${tools[22]}
              24 "AWS CLI" ${tools[23]}
-             25 "???" ${tools[24]}
+             25 "thefuck" ${tools[24]}
              26 "SOPS" ${tools[25]}
              27 "K9s" ${tools[26]}
              )
@@ -89,19 +98,20 @@ software(){
 				echo "Installing Git, please configure it later..."
 				apt install -y git 
 				;;
-
 			2)
 				echo "Installing NVM"
 				curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
                 echo "You will need to export NVM_DIR, please follow the instructions from NVM repo"
 				;;
             3)
-                echo "???"
+                echo "Installing Google Chrome"
+                sudo apt install google-chrome-stable
                 ;;
     		4)	
-				echo "???"
+				echo "Installing ASDF"
+                git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.10.2
+                echo '. $HOME/.asdf/asdf.sh' >> ~/.bashrc && echo '. $HOME/.asdf/completions/asdf.bash' >> ~/.bashrc
 				;;
-				
 			5)
                 echo "Installing RubyMine"
                 sudo snap install rubymine --classic 
@@ -123,10 +133,11 @@ software(){
 				;;
 			8)
 				echo "Generating SSH keys"
-				ssh-keygen -t rsa -b 4096
+				ssh-keygen -t rsa -b 4096 -N "" -f work.key
 				;;
 			9)
-				echo "Installing ???"
+				echo "Installing nmap"
+                sudo apt install nmap
                 ;;
             10)
                 echo "Installing Slack"
@@ -238,7 +249,10 @@ software(){
                 sudo rm -rf awscliv2.zip aws
                 ;;
             25)
-                echo "Installing ????"
+                echo "Installing thefuck"
+                sudo apt update
+                sudo apt install python3-dev python3-pip python3-setuptools
+                pip3 install thefuck --user
                 ;;
             26)
                 echo "Installing SOPS"
@@ -258,7 +272,7 @@ software(){
 }
 
 if [[ $EUID -ne 0 ]]; then
-   	echo "This script must be run as root" 
+   	echo "You must run this with 'sudo'" 
    	exit 1
 else
     menu
