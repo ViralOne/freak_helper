@@ -7,17 +7,9 @@ apt-get update
 sudo apt-get install dialog
 ```
 
-## Use the script in your terminal
+## To install script use the `install.sh` provided by us
 
-```sh
-chmod +x afhelper
-./afhelper
-```
-## Install the app:
-
-```sh
-sudo install afhelper /usr/local/bin
-```
+Just run `./install.sh` in your terminal.
 
 ### How to start the app
 
@@ -31,35 +23,35 @@ Open a terminal an run inside the next line:
 
 Tools that are included in afhelper script
 
-| Software | FrontEnd | BackEnd | Android | DevOps |
-| ------ | ------ | ------ | ------ | ------ |
-| Git | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| NVM | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: |
-| Google Chrome | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: |
-| asdf | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: |
-| RubyMine | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: |
-| Android Studio | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: |
-| Visual Studio Code | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: |
-| Generate SSH Keys | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: |
-| Nmap | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: |
-| Slack | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: |
-| ZSH | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: |
-| MySQL | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: |
-| PostgreSQL | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: |
-| Ruby | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: |
-| Python3.9 | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: |
-| GoLang | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: |
-| Postman | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: |
-| Insomnia | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: |
-| GitKraken | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: |
-| Docker | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: |
-| K8s | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: |
-| Terraform | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: |
-| AWS VPN Client | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: |
-| AWS CLI | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: |
-| thefuck | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: |
-| SOPS | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: |
-| K9S | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: |
+| No | Software | FrontEnd | BackEnd | Android | DevOps |
+| -- | ------ | ------ | ------ | ------ | ------ |
+| 0 | Git                | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| 1 | NVM                | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
+| 2 | Google Chrome      | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| 3 | asdf               | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| 4 | RubyMine           | :x: | :heavy_check_mark: | :x: | :x: |
+| 5 | Android Studio     | :x: | :x: | :heavy_check_mark: | :x: |
+| 6 | Visual Studio Code | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| 7 | Generate SSH Keys  | :x: | :x: | :x: | :x: |
+| 8 | Nmap               | :x: | :x: | :x: | :heavy_check_mark: |
+| 9 | Slack              | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| 10 | ZSH                | :x: | :x: | :x: | :heavy_check_mark: |
+| 11 | MySQL              | :x: | :x: | :x: | :x: |
+| 12 | PostgreSQL         | :x: | :x: | :x: | :x: |
+| 13 | Ruby               | :x: | :heavy_check_mark: | :x: | :heavy_check_mark: |
+| 14 | Python3.9          | :x: | :x: | :x: | :heavy_check_mark: |
+| 15 | GoLang             | :x: | :x: | :x: | :heavy_check_mark: |
+| 16 | Postman            | :x: | :x: | :x: | :x: |
+| 17 | Insomnia           | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
+| 18 | GitKraken          | :x: | :x: | :x: | :x: |
+| 19 | Docker             | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| 20 | K8s                | :x: | :x: | :x: | :heavy_check_mark: |
+| 21 | Terraform          | :x: | :x: | :x: | :heavy_check_mark: |
+| 22 | AWS VPN Client     | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| 23 | AWS CLI            | :x: | :x: | :x: | :heavy_check_mark: |
+| 24 | thefuck            | :x: | :x: | :x: | :x: |
+| 25 | SOPS               | :x: | :x: | :x: | :heavy_check_mark: |
+| 26 | K9S                | :x: | :x: | :x: | :heavy_check_mark: |
 
 ## Development
 

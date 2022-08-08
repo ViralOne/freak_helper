@@ -25,8 +25,8 @@ menu() {
     case $menuitem in
         FrontEnd) _temp_var="frontend" ; check ; software;;
         BackEnd) _temp_var="backend" ; check ;  software;;
-        Roku) _temp_var="roku" ; check ; software;;
         Android) _temp_var="android" ; check ; software;;
+        Roku) _temp_var="roku" ; check ; software;;
         DevOps) _temp_var="devops" ; check ; software;;
         Quit) rm $_temp; clear; exit;;
     esac
@@ -40,18 +40,58 @@ check() {
   if [ "$_temp_var" == "frontend" ]; then
     tools[0]="on"
     tools[1]="on"
+    tools[2]="on"
+    tools[3]="on"
+    tools[6]="on"
+    tools[9]="on"
+    tools[17]="on"
+    tools[19]="on"
+    tools[22]="on"
   else if [ "$_temp_var" == "backend" ]; then
     tools[0]="on"
+    tools[1]="on"
     tools[2]="on"
-  else if [ "$_temp_var" == "roku" ]; then
-    tools[0]="on"
     tools[3]="on"
+    tools[4]="on"
+    tools[6]="on"
+    tools[9]="on"
+    tools[13]="on"
+    tools[17]="on"
+    tools[19]="on"
+    tools[22]="on"
   else if [ "$_temp_var" == "android" ]; then
     tools[0]="on"
-    tools[4]="on"
+    tools[2]="on"
+    tools[3]="on"
+    tools[5]="on"
+    tools[6]="on"
+    tools[9]="on"
+    tools[19]="on"
+    tools[22]="on"
+  else if [ "$_temp_var" == "roku" ]; then
+    tools[0]="on"
+    tools[1]="on"
+    tools[2]="on"
   else if [ "$_temp_var" == "devops" ]; then
     tools[0]="on"
+    tools[1]="on"
+    tools[2]="on"
+    tools[3]="on"
+    tools[6]="on"
+    tools[8]="on"
+    tools[9]="on"
+    tools[10]="on"
+    tools[13]="on"
+    tools[14]="on"
+    tools[15]="on"
+    tools[17]="on"
+    tools[19]="on"
+    tools[20]="on"
+    tools[21]="on"
+    tools[22]="on"
+    tools[23]="on"
     tools[25]="on"
+    tools[26]="on"
     fi
    fi
   fi
