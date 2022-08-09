@@ -1,13 +1,22 @@
 # Freak Helper
 
-## First we need to install the dependencies
+## Install manualy
+
+### First we need to install the dependencies
 
 ```sh
 apt-get update 
 sudo apt-get install dialog
 ```
 
-## To install script use the `install.sh` provided by us
+### Install afhelper
+
+```sh
+chmod +x afhelper
+cp ./afhelper /usr/local/bin/
+``` 
+
+## Install by using the script provided by us
 
 Just run `./install.sh` in your terminal.
 
@@ -57,4 +66,10 @@ Tools that are included in afhelper script
 
 Want to contribute? Great!
 
-Create a new issue ticket with the tools that you think are important and why you think that we should add them in the first place.
+Create a new issue ticket for what you want to contribute.
+eg:
+- Add a new tool to the list
+- Add a new profile
+- Add new commands
+- Add new features
+- Found a bug

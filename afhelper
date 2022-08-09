@@ -308,6 +308,7 @@ software(){
                 | tar -xzvf - -C /usr/local/bin
                 ;;
 	    esac
+        clear
 	done
 }
 
