@@ -44,7 +44,7 @@ Tools that are included in afhelper script
 | 7 | Generate SSH Keys  | :x: | :x: | :x: | :x: |
 | 8 | Nmap               | :x: | :x: | :x: | :heavy_check_mark: |
 | 9 | Slack              | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| 10 | ZSH                | :x: | :x: | :x: | :heavy_check_mark: |
+| 10 | SOPS                | :x: | :x: | :x: | :heavy_check_mark: |
 | 11 | MySQL              | :x: | :x: | :x: | :x: |
 | 12 | PostgreSQL         | :x: | :x: | :x: | :x: |
 | 13 | Ruby               | :x: | :heavy_check_mark: | :x: | :heavy_check_mark: |
@@ -59,7 +59,7 @@ Tools that are included in afhelper script
 | 22 | AWS VPN Client     | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | 23 | AWS CLI            | :x: | :x: | :x: | :heavy_check_mark: |
 | 24 | thefuck            | :x: | :x: | :x: | :x: |
-| 25 | SOPS               | :x: | :x: | :x: | :heavy_check_mark: |
+| 25 | ZSH               | :x: | :x: | :x: | :heavy_check_mark: |
 | 26 | K9S                | :x: | :x: | :x: | :heavy_check_mark: |
 
 ## Development

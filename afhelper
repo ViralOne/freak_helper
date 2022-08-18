@@ -5,7 +5,7 @@ _temp_var="$$"
 alegere="off"
 tools=("off" "off" "off" "off" "off" "off" "off" "off" "off" "off" "off" "off" "off" "off" "off" "off" "off" "off" "off" "off" "off" "off" "off" "off" "off" "off" "off" "off" "off" "off")
 
-VER="0.5"
+VER="0.6"
 
 menu() {
  dialog --backtitle "Install all the tools you need" --title " Freak Helper - v$VER "\
@@ -13,8 +13,8 @@ menu() {
         --menu "Move using [UP] [DOWN], [Enter] to select" 17 60 10\
         FrontEnd "Intall tools for Frontend Developer" \
         BackEnd "Intall tools for Backend Developer" \
-        Roku "Intall tools for Roku Developer" \
         Android "Intall tools for Android Developers" \
+        Data "Intall tools for Data Developer" \
         DevOps "Intall tools for DevOps Engineering" \
         Quit "Close Freak Helper" 2>$_temp
        
@@ -26,17 +26,13 @@ menu() {
         FrontEnd) _temp_var="frontend" ; check ; software;;
         BackEnd) _temp_var="backend" ; check ;  software;;
         Android) _temp_var="android" ; check ; software;;
-        Roku) _temp_var="roku" ; check ; software;;
+        Data) _temp_var="data" ; check ; software;;
         DevOps) _temp_var="devops" ; check ; software;;
         Quit) rm $_temp; clear; exit;;
     esac
 }
 
 check() {
-
-#    tools[0]="off" tools[1]="off" tools[2]="off" tools[3]="off" tools[4]="off" tools[5]="off" tools[6]="off" tools[7]="off" tools[8]="off" tools[9]="off" tools[10]="off" tools[11]="off" tools[12]="off" tools[13]="off" tools[14]="off" tools[15]="off" tools[16]="off" tools[17]="off" tools[18]="off" tools[19]="off" tools[20]="off" tools[21]="off" tools[22]="off" tools[23]="off" tools[24]="off" tools[25]="off"
-
-
   if [ "$_temp_var" == "frontend" ]; then
     tools[0]="on"
     tools[1]="on"
@@ -68,7 +64,7 @@ check() {
     tools[9]="on"
     tools[19]="on"
     tools[22]="on"
-  else if [ "$_temp_var" == "roku" ]; then
+  else if [ "$_temp_var" == "data" ]; then
     tools[0]="on"
     tools[1]="on"
     tools[2]="on"
@@ -92,6 +88,8 @@ check() {
     tools[23]="on"
     tools[25]="on"
     tools[26]="on"
+    tools[27]="on"
+    tools[28]="on"
     fi
    fi
   fi
@@ -111,7 +109,7 @@ software(){
 	         8 "Generate SSH Keys" ${tools[7]}
              9 "Nmap" ${tools[8]}
              10 "Slack" ${tools[9]}
-             11 "ZSH" ${tools[10]}
+             11 "SOPS" ${tools[10]}
              12 "MySQL" ${tools[11]}
              13 "PostgreSQL" ${tools[12]}
              14 "Ruby" ${tools[13]}
@@ -126,8 +124,9 @@ software(){
              23 "AWS VPN Client" ${tools[22]}
              24 "AWS CLI" ${tools[23]}
              25 "thefuck" ${tools[24]}
-             26 "SOPS" ${tools[25]}
+             26 "ZSH" ${tools[25]}
              27 "K9s" ${tools[26]}
+             28 "ASDF Plugins" ${tools[28]}
              )
         choices=$("${cmd[@]}" "${options[@]}" 2>&1 >/dev/tty)
         clear
@@ -187,9 +186,8 @@ software(){
                 sudo apt upgrade slack-desktop -y
                 ;;
             11) 
-                echo "Installing ZSH"
-                sudo apt-get install zsh -y
-                sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+                echo "Installing SOPS"
+                sudo apt-get install sops -y
                 ;;
             12) 
                 echo "Installing MySQL"
@@ -237,17 +235,19 @@ software(){
                 ;;
             
             20) 
-                echo "Installing Docker"
-                curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-                sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
-                sudo apt-get update
-                sudo apt-get install docker-ce -y
-                sudo groupadd docker
-                sudo usermod -aG docker $USER
-                newgrp docker 
-                sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-                sudo chmod +x /usr/local/bin/docker-compose
-                sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
+                echo "Installing Docker" 
+                # code is broken, I test it on my machine and it just breaks the installation
+
+                # curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+                # sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+                # sudo apt-get update
+                # sudo apt-get install docker-ce -y
+                # sudo groupadd docker
+                # sudo usermod -aG docker $USER
+                # newgrp docker 
+                # sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+                # sudo chmod +x /usr/local/bin/docker-compose
+                # sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
                 ;;
             21)
                 echo "Installing Kubernetes"
@@ -295,8 +295,9 @@ software(){
                 pip3 install thefuck --user
                 ;;
             26)
-                echo "Installing SOPS"
-                sudo apt-get install sops -y
+                echo "Installing ZSH"
+                sudo apt-get install zsh -y
+                sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
                 ;;
             27) 
                 echo "Installing K9s"
@@ -306,6 +307,46 @@ software(){
                 | tr -d \" \
                 | wget -qi - \
                 | tar -xzvf - -C /usr/local/bin
+                ;;
+            28)
+                echo "ASDF Plugins"
+                 #awscli
+                asdf plugin add https://github.com/MetricMike/asdf-awscli.git
+                #azure-cli
+                asdf plugin-add azure-cli https://github.com/itspngu/asdf-azure-cli
+                #gcloud
+                asdf plugin add gcloud https://github.com/jthegedus/asdf-gcloud
+                #GitHub CLI
+                asdf plugin-add github-cli https://github.com/bartlomiejdanek/asdf-github-cli.git
+                #docker-slim
+                asdf plugin-add docker-slim https://github.com/everpeace/asdf-docker-slim.git
+                #helm
+                asdf plugin-add helm https://github.com/Antiarchitect/asdf-helm.git
+                #helm-docs
+                asdf plugin-add helm-docs https://github.com/sudermanjr/asdf-helm-docs.git
+                #Helm Diff
+                asdf plugin-add helm-diff https://github.com/dex4er/asdf-helm-diff.git
+                #helmfile
+                asdf plugin-add helmfile https://github.com/feniix/asdf-helmfile.git
+                #k9s
+                asdf plugin-add k9s https://github.com/looztra/asdf-k9s
+                #kompose
+                asdf plugin add https://github.com/technikhil314/asdf-kompose.git
+                #sops
+                asdf plugin-add sops https://github.com/feniix/asdf-sops.git
+                #terraform
+                asdf plugin-add terraform https://github.com/asdf-community/asdf-hashicorp.git
+                asdf plugin-add terraform-ls https://github.com/asdf-community/asdf-hashicorp.git
+                #terraform-docs
+                asdf plugin-add terraform-docs https://github.com/looztra/asdf-terraform-docs
+                #terraformer
+                asdf plugin add terraformer https://github.com/grimoh/asdf-terraformer.git
+                #terragrunt
+                asdf plugin-add terragrunt https://github.com/ohmer/asdf-terragrunt
+                #tfsec
+                asdf plugin-add tfsec https://github.com/woneill/asdf-tfsec
+                #starship
+                asdf plugin add starship
                 ;;
 	    esac
         clear
